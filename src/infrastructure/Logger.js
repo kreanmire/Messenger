@@ -2,7 +2,7 @@
 
 const _ = require('underscore');
 const winston = require('winston');
-const config = require('./config');
+const config = require('./Config');
 const path = require('path');
 
 class Logger {
@@ -13,13 +13,16 @@ class Logger {
 
     initWLogger() {
 
-        let wlogger = new (winston.Logger)({ exitOnError: false });
+        let wlogger = winston.createLogger({ exitOnError: false });
+
         let label = `${process.pid} ${path.relative('..', require.main.filename)}`;
-        if (config.loggers && config.loggers.length > 0) {
-            _.each(config.loggers, (logger) => {
+
+        if (_.isArray(config.loggers) && !_.isEmpty(config.loggers)) {
+
+            for (let logger of config.loggers) {
                 let options = _.extend(logger.options, { label: label });
-                wlogger.add(winston.transports[ logger.transport ], options);
-            });
+                wlogger.add(new winston.transports[ logger.transport ](), options);
+            }
         }
         wlogger.log('info', 'Success init logger');
 

@@ -1,8 +1,8 @@
 'use strict';
 
 const moment = require('moment');
-const codes = require('./response_codes');
-const logger = require('./logger');
+const codes = require('./ResponseCodes');
+const logger = require('./Logger');
 const _ = require('underscore');
 
 const DEFAULT_ERROR_CODE = codes.SERVER_ERROR;

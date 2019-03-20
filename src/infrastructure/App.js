@@ -5,12 +5,12 @@ const cors = require('cors');
 const morgan = require('morgan');
 const compression = require('compression');
 const bodyParser = require('body-parser');
-const config = require('./config');
+const config = require('./Config');
 const ResponseHandler = require('./ResponseHandler');
-const expressValidator = require('./lib/express_validator').expressValidator;
-const logger = require('./logger');
-const routers = require('./routers');
-const XSSControl = require('./middlewares/XSSControl');
+const expressValidator = require('./ExpressValidator').expressValidator;
+const logger = require('./Logger');
+const Routes = require('./Routes');
+const XSSControl = require('./XSSControl');
 
 class ApiServer {
 
@@ -42,8 +42,8 @@ class ApiServer {
         
         this.app.use(ResponseHandler.handle); // global response handler
 
-        //Connect routers to server
-        routers(this.app);
+        //Connect routes to server
+        await Routes.loadRoutes(this.app);
 
         this.app.set('port', process.env.PORT || config.port);
 
