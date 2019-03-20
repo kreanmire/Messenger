@@ -1,0 +1,21 @@
+{
+    "name": "Messenger",
+    "version": "0.0.1",
+    "description": "Server app for fun",
+    "main": "src/server.js",
+    "repository": "https://github.com/kreanmire/Messenger.git",
+    "author": "Azykin <elgr5212@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "lint": "./node_modules/.bin/eslint ./src/",
+        "start": "node src/server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "cors": "^2.8.5",
+        "express": "^4.16.4",
+        "moment": "^2.24.0",
+        "morgan": "^1.9.1",
+        "underscore": "^1.9.1"
+    }
+}
