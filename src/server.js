@@ -1,7 +1,7 @@
 'use strict';
 
-const App = require('./infrastructure/App');
-const logger = require('./infrastructure/Logger');
+const App = require('./Infrastructure/App');
+const logger = require('./Infrastructure/Logger');
 
 class Server {
 

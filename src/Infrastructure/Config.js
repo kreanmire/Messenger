@@ -8,7 +8,7 @@ class Configuration {
 
         const env = (node_env) ? node_env : 'local';
 
-        this.defaultConfigPath = path.normalize(`${__dirname}/../config/config.${env}.js`);
+        this.defaultConfigPath = path.normalize(`${__dirname}/../Config/config.${env}.js`);
 
         this.configPath = (configPath && configPath.length > 0) ?  path.normalize(configPath) : this.defaultConfigPath;
         this.configuration = require(this.configPath);

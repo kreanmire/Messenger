@@ -40,7 +40,7 @@ class ApiServer {
         
         this.app.use(expressValidator);
         
-        this.app.use(ResponseHandler.handle); // global response handler
+        this.app.use(ResponseHandler.use); // global response handler
 
         //Connect routes to server
         await Routes.loadRoutes(this.app);
