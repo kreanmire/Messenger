@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+
+    db:
+        image: mongo:3.6
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: mongouser
+            MONGO_INITDB_ROOT_PASSWORD: 88888888
+            MONGO_INITDB_DATABASE: messenger
+        volumes:
+        # seeding scripts
+        - ./mongo-entrypoint:/docker-entrypoint-initdb.d
+        # named volumes
+        - dbdata:/data/db
+        - dbdata_config:/data/configdb
+        labels:
+        - traefik.enable=false
+        expose:
+        - 27017
+        ports:
+        - "127.0.0.1:7172:27017"
+
+volumes:
+    dbdata:
+    dbdata_config:

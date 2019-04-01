@@ -11,6 +11,7 @@ const expressValidator = require('./ExpressValidator').expressValidator;
 const logger = require('./Logger');
 const Routes = require('./Routes');
 const XSSControl = require('./XSSControl');
+const database = require('./Database');
 
 class ApiServer {
 
@@ -61,6 +62,9 @@ class ApiServer {
         if (!this.server.address()) {
             throw new Error(`Cannot run server. Port ${port}`);
         }
+
+        await database.getConnection();
+
         return this.server;
     }
 
@@ -70,6 +74,8 @@ class ApiServer {
             logger.debug('Close connection to server...');
             await this.server.close();
         }
+
+        await database.CloseConnect();
     }
 }
 

@@ -25,9 +25,18 @@ module.exports = {
             }
         }
     ],
+    database: {
+        mongodb: {
+            host:           'localhost',
+            port:           7172,
+            dbname:         'messenger',
+            password:       '88888888',
+            username:       'mongouser'
+        }
+    },
     lists: {
         DEFAULT_SEARCH:     '',
-        DEFAULT_LIMIT:      20,
+        DEFAULT_LIMIT:      10,
         DEFAULT_OFFSET:     0,
     },
     dateFormat: 'YYYY/MM/DD',
