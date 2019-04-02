@@ -33,7 +33,7 @@ class MessageController {
             const result = [];
 
             for (let message of messages) {
-                result.push(new MessageDTO(message))
+                result.push(new MessageDTO(message));
             }
 
             return res.successResponse(result);

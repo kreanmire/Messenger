@@ -86,18 +86,6 @@ class ValidatorService {
         return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/.test(value);
     }
 
-
-    static isDecision(value) {
-        return (value) ? constants.allApprovalDecisions.indexOf(value) !== -1 : false;
-    }
-
-    static isSortFields(value) {
-        return (value) ? constants.sortingFields.indexOf(value) !== -1 : false;
-    }
-
-    static isSortType(value) {
-        return (value) ? constants.sortingTypes.indexOf(value) !== -1 : false;
-    }
 }
 
 exports.Validator = ValidatorService;

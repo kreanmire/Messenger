@@ -44,7 +44,7 @@ class ResponseHandler {
             if (error.data && !data) {
                 data = error.data;
             } else if (error.data && data) {
-                data = lodash.assign(error.data, data);
+                data = _.assign(error.data, data);
             }
 
             if (typeof (data) !== 'object') {

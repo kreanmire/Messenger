@@ -13,7 +13,7 @@ class Server {
             logger.info(`Listening server on port ${app.address().port}`);
         }
         catch (e) {
-            logger.error(e);
+            logger.error(`${e.message} ${e.stack}`);
             process.exit(1);
         }
 

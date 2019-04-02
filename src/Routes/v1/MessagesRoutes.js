@@ -1,12 +1,12 @@
 'use strict';
 
 const MessageController = require('../../App/Controllers/MessageController');
-const MiddlewareCheck = require('../../Infrastructure/MiddlewareCheck');
+const ListMiddleware = require('../../App/Middlewares/ListMiddleware');
 
 module.exports = (app) => {
 
     app.route('/v1/messages')
         .post(MessageController.create)
-        .get(MiddlewareCheck.checkQueryPagin, MessageController.list);
+        .get(ListMiddleware.checkPagination, MessageController.list);
 
 };
