@@ -5,7 +5,7 @@ const { DEFAULT_LIMIT, DEFAULT_OFFSET } = require('./Config').lists;
 
 class MiddlewareCheck {
 
-    static async validateErrors(req, res, next, additionVerification) {
+    async validateErrors(req, res, next, additionVerification) {
 
         const result = await req.getValidationResult();
 
@@ -21,7 +21,7 @@ class MiddlewareCheck {
         }
     }
 
-    static async checkQueryPagin(req, res, next) {
+    async checkQueryPagin(req) {
 
         if (req.query.limit) {
             req.checkQuery('limit', 'Parameter limit must be valid positive Integer or  0').isPositiveIntOrNil();
@@ -40,8 +40,6 @@ class MiddlewareCheck {
         } else {
             req.query.offset = DEFAULT_OFFSET;
         }
-
-        await MiddlewareCheck.validateErrors(req, res, next);
 
     }
 }

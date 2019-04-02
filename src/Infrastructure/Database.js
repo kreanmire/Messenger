@@ -21,7 +21,7 @@ class Database {
             mongoose.set('useNewUrlParser', true);
 
             mongoose.connect(url, { useNewUrlParser: true });
-            mongoose.connection.on('error', e => reject(e));
+            mongoose.connection.on('error', reject);
             mongoose.connection.on('connected', () => {
 
                 logger.info('Database connected!');
