@@ -1,6 +1,6 @@
 'use strict';
 
-const PORT = 8090;
+const PORT = 8092;
 
 module.exports = {
     port: PORT,
@@ -16,7 +16,7 @@ module.exports = {
     },
     botApi: {
         token: '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11',
-        adress: 'http://localhost:8092',
+        adress: 'http://localhost:8090',
     },
     loggers: [
         {
@@ -35,9 +35,9 @@ module.exports = {
     database: {
         mongodb: {
             host:           'localhost',
-            port:           7173,
-            dbname:         'messenger-proxy',
-            password:       '99999999',
+            port:           7172,
+            dbname:         'messenger',
+            password:       '88888888',
             username:       'mongouser'
         }
     },
