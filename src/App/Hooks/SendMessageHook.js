@@ -28,12 +28,12 @@ class SendMessageHook extends Hook {
 
             const botMessage = new BotMessageDTO(message);
 
-            result = await this.send(botMessage)
+            result = await this.send(botMessage);
         }
         catch (e) {
             logger.error(
                 `Send message hook Error. Message with id ${message._id} not send`, e
-            )
+            );
         }
 
         return result;
